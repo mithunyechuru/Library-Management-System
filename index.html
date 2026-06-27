@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Library Management System</h1>
+    
+    <div class="form">
+      <input type="text" id="bookInput" placeholder="Enter Book ID..." autofocus>
+      <div class="button-group">
+        <button class="btn btn-add" onclick="addBook()">➕ Add Book</button>
+        <button class="btn btn-borrow" onclick="borrowBook()">📖 Borrow</button>
+        <button class="btn btn-return" onclick="returnBook()">↩ Return</button>
+      </div>
+    </div>
+
+    <div class="dashboard">
+      <div class="section library-section" onclick="toggle('library')">
+        <div class="section-header">
+          <span class="emoji">📕</span>
+          <strong>All Books</strong>
+          <span class="badge" id="libraryCount">0</span>
+        </div>
+        <ul id="libraryList" class="hidden"></ul>
+      </div>
+
+      <div class="section shelf-section" onclick="toggle('shelf')">
+        <div class="section-header">
+          <span class="emoji">📗</span>
+          <strong>Available</strong>
+          <span class="badge" id="shelfCount">0</span>
+        </div>
+        <ul id="shelfList" class="hidden"></ul>
+      </div>
+
+      <div class="section queue-section" onclick="toggle('queue')">
+        <div class="section-header">
+          <span class="emoji">📥</span>
+          <strong>Return Queue</strong>
+          <span class="badge" id="queueCount">0</span>
+        </div>
+        <ul id="queueList" class="hidden"></ul>
+      </div>
+
+      <div class="section borrowed-section" onclick="toggle('borrowed')">
+        <div class="section-header">
+          <span class="emoji">📘</span>
+          <strong>Borrowed Books</strong>
+          <span class="badge" id="borrowedCount">0</span>
+        </div>
+        <div id="borrowedList" class="hidden">
+          <table class="borrowed-table">
+            <thead>
+              <tr>
+                <th>Book ID</th>
+                <th>Borrower</th>
+                <th>Borrow Date</th>
+                <th>Return By</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="borrowedTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
